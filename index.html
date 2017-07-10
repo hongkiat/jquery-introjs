@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>jQuery Live Demo Tour - CSS Equal Height on Hongkiat.com</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/demo-style.css">
+<link rel="stylesheet" type="text/css" href="css/introjs.css">
+<script type="text/javascript" src="http://demo.hongkiat.com/_nav/js/nav.js"></script>
+<script type="text/javascript" src="js/intro.js"></script>
+</head>
+
+  <!-- 
+  * tour guidelines
+  1. demo logo goes back to demo page
+  2. hover title shows description
+  3. orange button links to full article
+  4. prev/next buttons go to subsequent tutorials
+  5. check out all the tutorials we have to showcase!
+  -->
+
+<body>
+	<div class="nav-wrapper">
+	<div class="nav-bar">
+		<div class="nav-logo">
+			<a href="http://demo.hongkiat.com/">Hongkiat.com</a>
+		</div>
+		<div class="nav-meta">
+			<h1 class="nav-title">CSS Equal Height</h1>
+			<p class="nav-description" style="display: none; opacity: 0; top: -10px;">Achieving equal column height using only CSS</p>
+      <p class="readtutorial"><a href="http://www.hongkiat.com/blog/css-equal-height/" target="_blank">Read tutorial</a></p>
+		</div>
+		<div class="nav-menu">
+			<ul>
+				<li class="prev"><a id="demo-prev" href="./index.html">prev</a></li>
+				<li class="next"><a id="demo-next" href="./index.html">next</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- nav meta -->
+<div class="demo-meta">
+	<h1 class="demo-title">CSS Equal Height</h1>
+	<p class="demo-desc">Achieving equal column height using only CSS</p>
+</div>
+
+<!-- demo content -->
+<div class="wrapper">
+
+<section class="unequal">
+
+<h2>Unequal Height</h2>
+
+<div class="container clearfix">
+	<div class="main">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam congue, tortor in mattis mattis, arcu erat pharetra orci, at vestibulum lorem ante a felis. Integer sit amet est ac elit vulputate lobortis. Vestibulum in ipsum nulla. Aenean erat elit, lacinia sit amet adipiscing quis, aliquet at erat. Vivamus massa sem, cursus vel semper non, dictum vitae mi.Donec sed bibendum ante.</div>
+
+	<div class="sidebar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam congue, tortor in mattis mattis, arcu erat pharetra orci, at vestibulum lorem ante a felis.</div>
+</div>
+<pre>
+.main, .sidebar {
+	float: left;
+	padding: 20px;
+}
+.main {
+	width: 400px;
+	background-color: LightSlateGrey;
+}
+.sidebar {
+	width: 200px;
+	background-color: Tomato;
+}
+</pre>
+</section>
+
+<section class="faux">
+<h2>Faux Column</h2>
+<div class="container clearfix">
+	<div class="main">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam congue, tortor in mattis mattis, arcu erat pharetra orci, at vestibulum lorem ante a felis. Integer sit amet est ac elit vulputate lobortis. Vestibulum in ipsum nulla. Aenean erat elit, lacinia sit amet adipiscing quis, aliquet at erat. Vivamus massa sem, cursus vel semper non, dictum vitae mi. Donec sed bibendum ante.</div>
+
+	<div class="sidebar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam congue, tortor in mattis mattis, arcu erat pharetra orci, at vestibulum lorem ante a felis.</div>
+</div>
+<pre>
+.main, .sidebar {
+	float: left;
+	padding: 20px;
+}
+.container {
+	background-color: Tomato;
+}
+.main {
+	width: 400px;
+	background-color: LightSlateGrey;
+}
+.sidebar {
+	width: 200px;
+}
+</pre>
+</section>
+
+<section class="table clearfix">
+<h2>CSS Table</h2>
+<div class="container clearfix">
+	<div class="main">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam congue, tortor in mattis mattis, arcu erat pharetra orci, at vestibulum lorem ante a felis. Integer sit amet est ac elit vulputate lobortis. Vestibulum in ipsum nulla. Aenean erat elit, lacinia sit amet adipiscing quis, aliquet at erat. Vivamus massa sem, cursus vel semper non, dictum vitae mi. Donec sed bibendum ante.</div>
+
+	<div class="sidebar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam congue, tortor in mattis mattis, arcu erat pharetra orci, at vestibulum lorem ante a felis.</div>
+</div>
+</section>
+
+<pre>
+.main, .sidebar {
+	float: none;
+	padding: 20px;
+	vertical-align: top;
+}
+.container {
+	display: table;
+}
+.main {
+	width: 400px;
+	background-color: LightSlateGrey;
+	display: table-cell;
+}
+.sidebar {
+	width: 200px;
+	display: table-cell;
+	background-color: Tomato;
+}
+</pre>
+
+</div>
+
+<script type="text/javascript">
+$(function(){
+  var introguide = introJs();
+  // var startbtn   = $('#startdemotour');
+  
+  introguide.setOptions({
+    steps: [
+    {
+      element: '.nav-bar',
+      intro: 'This guided tour will explain the Hongkiat demo page interface.<br><br>Use the arrow keys for navigation or hit ESC to exit the tour immediately.',
+      position: 'bottom'
+    },
+    {
+      element: '.nav-logo',
+      intro: 'Click this main logo to view a list of all Hongkiat demos.',
+      position: 'bottom'
+    },
+    {
+      element: '.nav-title',
+      intro: 'Hover over each title to display a longer description.',
+      position: 'bottom'
+    },
+    {
+      element: '.readtutorial a',
+      intro: 'Click this orange button to view the tutorial article in a new tab.',
+      position: 'right'
+    },
+    {
+      element: '.nav-menu',
+      intro: "Each demo will link to the previous & next entries.",
+      position: 'bottom'
+    }
+    ]
+  });
+
+  introguide.start();
+
+
+});
+</script>
+</body>
+</html>
